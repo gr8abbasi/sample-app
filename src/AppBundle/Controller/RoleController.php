@@ -9,20 +9,20 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\View\View;
-use AppBundle\Entity\User;
+use AppBundle\Entity\Role;
 
-class UserController extends FOSRestController
+class RoleController extends FOSRestController
 {
     /**
-     *  @Rest\Get("/users")
+     *  @Rest\Get("/roles")
      */
     public function getAction()
     {
-        $users = $this->getDoctrine()->getRepository('AppBundle:User')->findAll();
-        if ($users === null) {
-            return new View("No user exists!", Response::HTTP_NOT_FOUND);
+        $roles = $this->getDoctrine()->getRepository('AppBundle:Role')->findAll();
+        if ($roles === null) {
+            return new View("No role exists!", Response::HTTP_NOT_FOUND);
         }
 
-        return $users;
+        return $roles;
     }
 }

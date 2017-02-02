@@ -16,5 +16,12 @@ class LoadUserData implements FixtureInterface
 
         $manager->persist($userAdmin);
         $manager->flush();
+
+        $user = new User();
+        $user->setName('xyz');
+        $user->setRole('manager');
+
+        $manager->persist($user);
+        $manager->flush();
     }
 }
